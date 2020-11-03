@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card-body">
+    <h4>Data List</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Temperature</th>
+                <th scope="col">Relative Humidity</th>
+                <th scope="col">Barometric Pressure</th>
+                <th scope="col">Precipitation</th>
+                <th scope="col">Incoming Solar Radiation</th>
+                <th scope="col">Outgoing Solar Radiation</th>
+                <th scope="col">Wind Speed</th>
+                <th scope="col">Wind Direction</th>
+                <th scope="col">Photosynthetically Active Radiation</th>
+                <!-- <th scope="col">Captured Server Time Date</th> -->
+                <th scope="col">Captured Sensor Time Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in object_list %}
+            <tr>
+                <td>{{ x.temperature }}</td>
+                <td>{{ x.relative_humidity }}</td>
+                <td>{{ x.barometric_pressure }}</td>
+                <td>{{ x.precipitation }}</td>
+                <td>{{ x.incoming_solar_radiation }}</td>
+                <td>{{ x.outgoing_solar_radiation }}</td>
+                <td>{{ x.wind_speed }}</td>
+                <td>{{ x.wind_direction }}</td>
+                <td>{{ x.photosynthetically_active_radiation }}</td>
+                <!-- <td>{{ data.captured_server_time_date }}</td> -->
+                <td>{{ x.captured_sensor_time_date }}</td>
+                <td><a type="button" class="btn btn-primary" href="/data-detail/{{ data.id }}">Detail</a>
+                    <a type="button" class="btn btn-warning" href="/data-update/{{ data.id }}">Update</a>
+                    <a type="button" class="btn btn-danger" href="/data-delete/{{ data.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="{%url 'data-create' %}">Create</a>
+</div>
+{% endblock %}
