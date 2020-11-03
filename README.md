@@ -20,5 +20,7 @@ Process:
 #Error
 
 #Port eroor: The port is alredy in use Solve: sudo fuser -k 8000/tcp
+
 #database will be created having appname_modelclass
+
 #DateTimeField:- Y-M-D H-M-S
