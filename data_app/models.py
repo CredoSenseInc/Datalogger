@@ -12,3 +12,5 @@ class Data(models.Model):
     wind_direction =  models.CharField(db_column='wind_direction', null=True, max_length=255, blank=True)
     photosynthetically_active_radiation = models.FloatField(db_column='photosynthetically_active_radiation', null=True, blank=True, default=00.00)
     captured_sensor_time_date = models.DateTimeField(db_column='captured_sensor_time_date', null=True)
+    # def __str__(self):
+    #     return "{}-{}".format(self.temperature, self.captured_sensor_time_date)

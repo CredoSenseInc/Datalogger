@@ -20,19 +20,19 @@
             </tr>
         </thead>
         <tbody>
-            {% for x in object_list %}
+            {% for data in object_list %}
             <tr>
-                <td>{{ x.temperature }}</td>
-                <td>{{ x.relative_humidity }}</td>
-                <td>{{ x.barometric_pressure }}</td>
-                <td>{{ x.precipitation }}</td>
-                <td>{{ x.incoming_solar_radiation }}</td>
-                <td>{{ x.outgoing_solar_radiation }}</td>
-                <td>{{ x.wind_speed }}</td>
-                <td>{{ x.wind_direction }}</td>
-                <td>{{ x.photosynthetically_active_radiation }}</td>
+                <td>{{ data.temperature }}</td>
+                <td>{{ data.relative_humidity }}</td>
+                <td>{{ data.barometric_pressure }}</td>
+                <td>{{ data.precipitation }}</td>
+                <td>{{ data.incoming_solar_radiation }}</td>
+                <td>{{ data.outgoing_solar_radiation }}</td>
+                <td>{{ data.wind_speed }}</td>
+                <td>{{ data.wind_direction }}</td>
+                <td>{{ data.photosynthetically_active_radiation }}</td>
                 <!-- <td>{{ data.captured_server_time_date }}</td> -->
-                <td>{{ x.captured_sensor_time_date }}</td>
+                <td>{{ data.captured_sensor_time_date }}</td>
                 <td><a type="button" class="btn btn-primary" href="/data-detail/{{ data.id }}">Detail</a>
                     <a type="button" class="btn btn-warning" href="/data-update/{{ data.id }}">Update</a>
                     <a type="button" class="btn btn-danger" href="/data-delete/{{ data.id }}">Delete</a>

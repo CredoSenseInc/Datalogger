@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView, TemplateView
 from .models import Data
 from django.urls import reverse_lazy
 from rest_framework import viewsets
@@ -37,3 +37,18 @@ class DataDeleteView(DeleteView):
     model = Data
     template_name = 'data-delete.html'
     success_url = reverse_lazy('data-list')
+def show(request):
+    table = Data.objects.all()
+    return render(request,"show.html",{'object_list':table})
+
+def graph(request):
+    qs = Data.objects.all()
+    return render(request,"chart.html",{'object_list':qs})
+#
+# class DataChartView(TemplateView):
+#     model = Data
+#     template_name = 'chart.html'
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['qs'] = Data.objects.all()
+#         return context

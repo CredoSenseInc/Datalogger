@@ -1,4 +1,4 @@
-from .views import DataListView, DataCreateView, DataDetailView, DataUpdateView, DataDeleteView
+from .views import DataListView, DataCreateView, DataDetailView, DataUpdateView, DataDeleteView,show, graph
 from django.urls import path, include
 from . import views
 from rest_framework import routers
@@ -11,7 +11,10 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('data-list/', DataListView.as_view(), name='data-list'),
     path('data-create/', DataCreateView.as_view(), name='data-create'),
+    path('show/', views.show, name='show'),
+    path('graph/', views.graph, name = 'graph'),
     path('data-detail/<int:pk>', DataDetailView.as_view(),name='data-detail'),
     path('data-update/<int:pk>', DataUpdateView.as_view(),name='data-update'),
     path('data-delete/<int:pk>', DataDeleteView.as_view(),name='data-delete'),
+
 ]
