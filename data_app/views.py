@@ -38,11 +38,15 @@ class DataDeleteView(DeleteView):
     template_name = 'data-delete.html'
     success_url = reverse_lazy('data-list')
 def show(request):
-    table = Data.objects.all()
+    # table = Data.objects.all()
+    table_abc = Data.objects.all().order_by('-id')[:3]
+    table = reversed(table_abc)
     return render(request,"show.html",{'object_list':table})
 
 def graph(request):
-    qs = Data.objects.all()
+    qs= Data.objects.all().order_by('-id')[:5]
+    # abc = Data.objects.all().order_by('-id')[:3]
+    # qs = reversed(abc)
     return render(request,"chart.html",{'object_list':qs})
 #
 # class DataChartView(TemplateView):
