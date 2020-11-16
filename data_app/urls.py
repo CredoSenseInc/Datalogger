@@ -13,6 +13,7 @@ urlpatterns = [
     path('data-create/', DataCreateView.as_view(), name='data-create'),
     path('show/', views.show, name='show'),
     path('graph/', views.graph, name = 'graph'),
+    path('csv/', views.exportcsv, name = 'csv'),
     path('data-detail/<int:pk>', DataDetailView.as_view(),name='data-detail'),
     path('data-update/<int:pk>', DataUpdateView.as_view(),name='data-update'),
     path('data-delete/<int:pk>', DataDeleteView.as_view(),name='data-delete'),
